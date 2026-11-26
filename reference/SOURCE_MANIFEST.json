@@ -1,0 +1,157 @@
+{
+  "schema": "hedge_public_reference_source_v1",
+  "scope": "Source subset of the later audited support/query implementation, not the historical July demo or complete benchmark pipeline.",
+  "aligned_fit_approval_sha256": "0401625dddc02f72e591c66fe3b35f756501235669565612a81d18d59f235c9c",
+  "files": [
+    {
+      "path": "paper_core.py",
+      "kind": "byte_identical",
+      "source": "experiments/paper_core.py",
+      "sha256": "30da8a69ed5d2dc8f3a2db398dabcb7e41888767e133642940440d4154ed5ee9",
+      "bytes": 18849,
+      "bound_by_aligned_approval": true
+    },
+    {
+      "path": "paper_fast.py",
+      "kind": "byte_identical",
+      "source": "experiments/paper_fast.py",
+      "sha256": "ee73a4da04bfb1b38f5479aa32a8e013b0941dec974d857cff675908cfb5d91c",
+      "bytes": 10319,
+      "bound_by_aligned_approval": true
+    },
+    {
+      "path": "stable_ensemble_score.py",
+      "kind": "byte_identical",
+      "source": "experiments/stable_ensemble_score.py",
+      "sha256": "847bfb7bf6fbb707feb28605a195b25d4d7b42ab3f014d544b8ca0a9c5e93020",
+      "bytes": 4823,
+      "bound_by_aligned_approval": true
+    },
+    {
+      "path": "train_label_index.py",
+      "kind": "byte_identical",
+      "source": "experiments/train_label_index.py",
+      "sha256": "507a9b393705d9e13122005b2a1600d721d214b19a298b926c4a39dedc53143b",
+      "bytes": 2334,
+      "bound_by_aligned_approval": true
+    },
+    {
+      "path": "support_query_contract.py",
+      "kind": "byte_identical",
+      "source": "gapfill_20260930/support_query_contract.py",
+      "sha256": "96ec3436e1aecbb639fe50332d9ba747cdb33f2700cab54a0a00ce3cd7a93887",
+      "bytes": 10944,
+      "bound_by_aligned_approval": true
+    },
+    {
+      "path": "support_query_runtime.py",
+      "kind": "byte_identical",
+      "source": "gapfill_20260930/support_query_runtime.py",
+      "sha256": "a70777d0bd5ed51dbaf17635a559606f43880f38d64c8c2250bb3b3b58e4be2c",
+      "bytes": 17274,
+      "bound_by_aligned_approval": true
+    },
+    {
+      "path": "test_paper_core.py",
+      "kind": "byte_identical",
+      "source": "experiments/test_paper_core.py",
+      "sha256": "fba47b387036c1008ad0e641baa547d006617f4d51386d0e5df39a5932fe9f3b",
+      "bytes": 7568,
+      "bound_by_aligned_approval": false
+    },
+    {
+      "path": "test_paper_fast.py",
+      "kind": "byte_identical",
+      "source": "experiments/test_paper_fast.py",
+      "sha256": "6fc3f92438a94ff6c2a67666902e82998ad9999cd9e53c97c36dfa8bcb0364c4",
+      "bytes": 3703,
+      "bound_by_aligned_approval": false
+    },
+    {
+      "path": "main_components.py",
+      "kind": "unchanged_ast_source_segments_with_portable_imports",
+      "sha256": "7a701189d6278a2c3b39f593aebcf37554a569ab1a39bd8524313afe71aa791d",
+      "bytes": 5317,
+      "segments": [
+        {
+          "source": "gapfill_20260930/run_bridge_diagnostic.py",
+          "source_sha256": "661e528ed0ae8088b933bae6ce2850a650b868dd0b443ac188d877639f1f7005",
+          "symbols": [
+            "PermutationBatches"
+          ],
+          "segment_sha256": "7b73c546a0c00f8fc0ccebb3296624bad089d865282fa3973bdb92417328a602"
+        },
+        {
+          "source": "gapfill_20260930/run_support_query_pilot.py",
+          "source_sha256": "bad009fefc5bf33544b03a252c0bcc8d5a29a36107130ca90b633036d03bc671",
+          "symbols": [
+            "BlockPairSchedule"
+          ],
+          "segment_sha256": "6432a0e2541ce7bfb66b8aba49ef16d2eea2ee3ecf5fbfca5bbd3d02d1d71282"
+        },
+        {
+          "source": "gapfill_20260930/run_support_query_main.py",
+          "source_sha256": "db0dcbf9d6df9fb3edde1a88b01932df789e21c1af49e2ae4fbcbdaaad9d282a",
+          "symbols": [
+            "ARMS"
+          ],
+          "segment_sha256": "fba8b50ffb9993a157f4eb912341e5fbc58177852c75fe959c5f6282c95ab3a3"
+        },
+        {
+          "source": "gapfill_20260930/run_support_query_main.py",
+          "source_sha256": "db0dcbf9d6df9fb3edde1a88b01932df789e21c1af49e2ae4fbcbdaaad9d282a",
+          "symbols": [
+            "STEPS"
+          ],
+          "segment_sha256": "6a8b3048a2102b29294cf152a7552305e81b254b79f129f7dfefa93d4032c935"
+        },
+        {
+          "source": "gapfill_20260930/run_support_query_main.py",
+          "source_sha256": "db0dcbf9d6df9fb3edde1a88b01932df789e21c1af49e2ae4fbcbdaaad9d282a",
+          "symbols": [
+            "VALIDATION_STEPS"
+          ],
+          "segment_sha256": "c1ff70ae1d1033cf705329955247e81b8f279c9328169da829f80263e9eddafe"
+        },
+        {
+          "source": "gapfill_20260930/run_support_query_main.py",
+          "source_sha256": "db0dcbf9d6df9fb3edde1a88b01932df789e21c1af49e2ae4fbcbdaaad9d282a",
+          "symbols": [
+            "WEIGHTS"
+          ],
+          "segment_sha256": "432d30e5eee9c7206000becd7ab66f51688c8a51eec5dda6e7b15fd1023b95bf"
+        },
+        {
+          "source": "gapfill_20260930/run_support_query_main.py",
+          "source_sha256": "db0dcbf9d6df9fb3edde1a88b01932df789e21c1af49e2ae4fbcbdaaad9d282a",
+          "symbols": [
+            "MainCore"
+          ],
+          "segment_sha256": "13af76cd1714f8d17b18fbec2c81d3c1bb1d50082d954394971faf067a8359bf"
+        },
+        {
+          "source": "gapfill_20260930/run_support_query_main.py",
+          "source_sha256": "db0dcbf9d6df9fb3edde1a88b01932df789e21c1af49e2ae4fbcbdaaad9d282a",
+          "symbols": [
+            "query_block_labels"
+          ],
+          "segment_sha256": "705a0fd1f1df78880409f97743bec1ba7d4bc8ed941ddb7d27f79a31ee5a9945"
+        },
+        {
+          "source": "gapfill_20260930/run_support_query_main.py",
+          "source_sha256": "db0dcbf9d6df9fb3edde1a88b01932df789e21c1af49e2ae4fbcbdaaad9d282a",
+          "symbols": [
+            "objective"
+          ],
+          "segment_sha256": "4360018ab0affa812c5301071f3fbab5690f5f40b99931bdfd69eef03e2c4fb3"
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    "private approvals and execution logs",
+    "reviewer correspondence",
+    "dataset inputs, prepared banks, scores and checkpoints",
+    "cluster-specific launchers and benchmark completion claims"
+  ]
+}
