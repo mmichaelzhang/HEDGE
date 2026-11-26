@@ -1,0 +1,6 @@
+*.md text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+# Preserve exact bytes of source-bound reference copies (including CRLF).
+reference/*.py -text
+*.pdf binary

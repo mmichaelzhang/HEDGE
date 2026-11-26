@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Reference loop showing how the released modules compose.
+"""Legacy demonstration loop, retained for compatibility.
 
-This is intentionally minimal: it demonstrates the method end-to-end on one
-fold, but omits the tuned per-dataset configurations, the scoring and evaluation
-harness, and the baseline suite, which follow on acceptance.
+This is not the later audited experiment runner. It samples unlabeled negatives
+and has no validation selection or test evaluation. See reference/README.md for
+the source-bound support/query core and its synthetic example.
 """
 import argparse
 import numpy as np
