@@ -1,4 +1,4 @@
-"""HEDGE-DTI core modules (partial release).
+"""Legacy HEDGE-DTI demonstration API; see reference/ for the later core.
 
 The sampler and the data interface are pure NumPy and import without torch;
 the encoder and losses require torch (see requirements.txt).

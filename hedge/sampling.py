@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Concentrated heterogeneous graph sampling  (paper Sec. 4.1, Algorithm 1).
+"""Legacy typed-walk demonstration over drugs and targets.
 
-Implements the sampler Q : (G, v_h) -> S of the preliminaries, which maps the
-heterogeneous network and a head node to a multiset of ordered sub-structures.
-Each sub-structure is an alternating node--connection sequence; a connection
-carries the *type* of the traversed relation, so no relational evidence is lost
-when intervening nodes are collapsed. No meta-path template is required.
+This module does not compress auxiliary-node paths into ordered relation tuples.
+The later reference implementation of that operation is in reference/paper_core.py.
 """
 import numpy as np
 
@@ -31,6 +28,11 @@ def build_typed_graph(mask, topk=10):
     ntype  : (E,)   int8  connection type per incident edge
     N      : int    number of nodes
     """
+    mask = np.asarray(mask)
+    if mask.ndim != 2 or min(mask.shape) < 1:
+        raise ValueError('Expected a nonempty drug-by-target mask')
+    if not isinstance(topk, (int, np.integer)) or topk < 0:
+        raise ValueError('topk must be a nonnegative integer')
     nD, nT = mask.shape
     N = nD + nT
     M = mask.astype(np.float32)
@@ -48,7 +50,9 @@ def build_typed_graph(mask, topk=10):
         np.fill_diagonal(dd, 0)
         for d in range(nD):
             row = dd[d]
-            idx = np.argpartition(-row, min(topk, N - 1))[:topk]
+            # Keep the legacy selection on ordinary graphs; cap the partition
+            # index by this row's length, not the combined drug/target count.
+            idx = np.argpartition(-row, min(topk, len(row) - 1))[:topk]
             for j in idx[row[idx] > 0]:
                 adj[d].append((int(j), DD))
     if nT <= 6000:
@@ -56,7 +60,7 @@ def build_typed_graph(mask, topk=10):
         np.fill_diagonal(tc, 0)
         for t in range(nT):
             row = tc[t]
-            idx = np.argpartition(-row, min(topk, N - 1))[:topk]
+            idx = np.argpartition(-row, min(topk, len(row) - 1))[:topk]
             for j in idx[row[idx] > 0]:
                 adj[t + nD].append((int(j) + nD, TT))
 

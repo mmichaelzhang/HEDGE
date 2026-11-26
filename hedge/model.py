@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Connection-aware transformer encoder  (paper Sec. 4.2 and 4.3).
+"""Legacy demonstration encoder retained for API compatibility.
 
-Nodes and connections are embedded at the same dimension and interleaved into a
-single token sequence, so a typed relation is a first-class token rather than an
-edge weight. A head-relative positional embedding makes the encoding invariant
-to which sub-structure was sampled. Global self-attention over the short
-sequence reaches distant tails without deep stacking, which is what structurally
-avoids the over-smoothing that limits GNNs.
-
-Prediction ensembles the m sampled views in which a pair co-occurs (Sec. 4.3).
+It interleaves three edge types with node tokens, uses walk-position indices,
+and averages encoded head states across views. It does not implement the later
+reference core's graph-distance tokens, ordered relation tuples, or pair-wise
+probability ensemble. See reference/README.md for the implementation mapping.
 """
 import torch
 import torch.nn as nn
@@ -30,7 +26,7 @@ class HedgeDTI(nn.Module):
         self.N, self.d, self.L, self.m = N, d, L, m
         self.node_emb = nn.Embedding(N, d)
         self.type_emb = nn.Embedding(N_CONN_TYPES, d)     # connection tokens
-        self.pos_emb = nn.Embedding(L + 1, d)             # head-relative position
+        self.pos_emb = nn.Embedding(L + 1, d)             # walk-position index
         self.conn_marker = nn.Parameter(torch.zeros(d))   # shared connection marker
         nn.init.normal_(self.node_emb.weight, std=0.02)
 

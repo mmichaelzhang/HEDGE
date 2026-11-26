@@ -1,20 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Dual-view training objective  (paper Sec. 4.2.2).
+"""Legacy demonstration losses; numerical behavior is retained.
 
-Two complementary views of every sample:
-  * a CONTRASTIVE view over head--tail pairs   -> L_con
-  * an OBSERVATIONAL view over connections     -> L_obs
-plus a per-drug LISTWISE ranking term that targets Precision@K directly, which
-is the quantity that governs wet-lab prioritisation.
-
-    L = L_bce + lam_list * L_list + lam_con * L_con + lam_obs * L_obs
-
-All four terms are kept on a comparable scale. In particular the observational
-view is computed on L2-normalised representations with a temperature, exactly
-like the contrastive view: on raw d-dimensional representations the dot product
-is O(sqrt(d)) (~11 at d=128, excursions past 30), which makes L_obs roughly an
-order of magnitude larger than the other three and lets it dominate the
-objective regardless of its weight.
+These include hard-negative-weighted BCE, a listwise surrogate, contrastive
+loss, and random-negative observation loss. They are not the later audited
+attention-weighted triple observation objective in reference/paper_core.py.
 """
 import torch
 import torch.nn.functional as F
