@@ -4,3 +4,4 @@
 # Preserve exact bytes of source-bound reference copies (including CRLF).
 reference/*.py -text
 *.pdf binary
+reference/SOURCE_MANIFEST.json -text
